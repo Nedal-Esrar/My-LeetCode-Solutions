@@ -1,7 +1,7 @@
 class Solution {
 public:
     int maximumNumberOfStringPairs(vector<string>& words) {
-        unordered_map<string, int> frq;
+        map<string, int> frq;
         
         int ans = 0;
         
