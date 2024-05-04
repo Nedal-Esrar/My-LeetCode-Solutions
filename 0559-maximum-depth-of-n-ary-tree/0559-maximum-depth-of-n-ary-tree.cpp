@@ -25,15 +25,26 @@ public:
             return 0;
         }
         
+        queue<pair<Node*, int>> q;
+        
+        q.push({root, 1});
+        
         int ret = 1;
         
-        for (Node* child : root->children) {
-            ret = max(ret, 1 + maxDepth(child));
+        while (!q.empty()) {
+            auto [front_node, depth] = q.front();
+            q.pop();
+            
+            ret = max(ret, depth);
+            
+            for (Node* child : front_node->children) {
+                q.push({child, depth + 1});
+            }
         }
         
         return ret;
     }
 };
 
-
-// 1 + max{depth(root->children)}
+// Queue
+// (1, 1) -> (3, 2), 2, 4 -> 2, 4, 5, 6
