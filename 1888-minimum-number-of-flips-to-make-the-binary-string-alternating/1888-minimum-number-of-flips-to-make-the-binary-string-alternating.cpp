@@ -26,7 +26,7 @@ public:
                 }
             }
             
-            if (i > n - 1) {
+            if (i >= n - 1) {
                 ret = min({ret, mismatch0, mismatch1});
             }
         }
